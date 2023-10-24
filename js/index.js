@@ -9,15 +9,13 @@ const options = {
   },
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/now_playing?language=ko-US&page=1",
-  options
-)
+
+fetch("https://api.themoviedb.org/3/movie/now_playing?language=ko-US&page=1", options)
   .then((response) => response.json())
   .then((response) => {
     response.results.forEach((movie) => {
       const template = `
-                          <div class = "movie" id = "${movie.id}" onclick ='displayShow()'>
+                          <div class = "movie" id = "${movie.id}" >
                             <img src ="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt=""/>
                             <div class = "text">
                               <h3 class = "title">${movie.title}</h3>
@@ -26,16 +24,19 @@ fetch(
                             </div>
                             
                             <div class="modal" id = "${movie.id}" style="display: none;">
-                              <div id="desc">${movie.overview}</div>
-                              <button id="close" onclick ='displayHide()'>X</button>
+                              <div class="desc">${movie.overview}</div>
+                              <button class="close">X</button>
 
                             </div>`;
       document
         .querySelector("#movies")
         .insertAdjacentHTML("beforeend", template);
     });
+    displayShow();
+    displayHide();
   })
   .catch((err) => console.error(err));
+
 
 // 카드를 누르면 id 뜨도록
 function seeid(clicked_id) {
@@ -78,15 +79,20 @@ document
 
 
   });
+ 
 
 function displayShow() {
-  document.querySelector(".detailpage_btn").addEventListener('click', function () {
-    document.querySelector(".modal").style.display = 'flex';
+  document.querySelectorAll(".detailpage_btn").forEach(function(btn){
+    btn.addEventListener('click', function () {
+      document.querySelector(".modal").style.display = 'flex';
+    })
   })
 }
 
 function displayHide() {
-  document.getElementById("close").addEventListener('click', function () {
-    document.querySelector(".modal").style.display = 'none';
+  document.querySelectorAll(".close").forEach(function(btn){
+    btn.addEventListener('click', function () {
+      document.querySelector(".modal").style.display = 'none';
   })
+})
 }
