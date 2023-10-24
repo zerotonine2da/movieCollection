@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="css/style.css" rel="stylesheet" />
-        <link href="css/reset.css" rel="stylesheet" />
-        <script src="js/index.js"></script>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/reset.css" rel="stylesheet" />
 
-        <title>movieCollection</title>
-    </head>
+    <title>movieCollection</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1><a class="home" href="./index.html">MOVIE</a></h1>
+        <div class="search" id="searchbar">
+          <input
+            type="text"
+            id="searchInput"
+            autocomplete="off"
+            placeholder="영화 검색..."
+          />
+          <button type="submit" id="searchButton">검색</button>
+        </div>
+      </div>
+    </header>
+    <main id="movies">
+    </main>
+    <footer>
+      <a href="#" id="goTop">TOP</a>
+      <p></p>
+    </footer>
 
-    <body>
-        <header>
-            <div>
-                <h1><a class="home" href="./index.html">MOVIE</a></h1>
-                <div class="search" id="searchbar">
-                    <input type="text" id="searchInput" autocomplete="off" placeholder="영화 검색..." />
-                    <button type="submit" id="searchButton">검색</button>
-                </div>
-            </div>
-        </header>
-        <main id="movies"></main>
-        <footer>
-            <a href="#" id="goTop">TOP</a>
-            <p></p>
-        </footer>
-    </body>
+    <script src="js/index.js"></script>
+  </body>
 </html>

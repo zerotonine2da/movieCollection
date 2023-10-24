@@ -1,198 +1,247 @@
 @font-face {
-    font-family: 'DNFBitBitv2';
-    font-style: normal;
-    font-weight: 400;
-    src: url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf') format('opentype');
+  font-family: "DNFBitBitv2";
+  font-style: normal;
+  font-weight: 400;
+  src: url("//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf")
+    format("opentype");
 }
 
 @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    padding-top: 30px;
-    padding-bottom: 50px;
-    height: 130px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  height: 130px;
 
-    background-color: #ffc7c7;
-    border-bottom: 7px solid #a87070;
+  background-color: #ffc7c7;
+  border-bottom: 7px solid #a87070;
 
-    text-align: center;
-    font-size: 2.2rem;
-    font-family: 'DNFBitBitv2';
+  text-align: center;
+  font-size: 2.2rem;
+  font-family: "DNFBitBitv2";
 }
 
 main {
-    background-color: #f6f6f6;
-    padding-bottom: 20px;
+  background-color: #f6f6f6;
+  padding-bottom: 20px;
 }
 
 footer {
-    background-color: #ffc7c7;
-    height: 80px;
-    color: transparent;
+  background-color: #ffc7c7;
+  height: 80px;
+  color: transparent;
 
-    border-top: 7px solid #a87070;
+  border-top: 7px solid #a87070;
 }
 
 form {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
-
+header > div {
+  padding-top: 20px;
+}
 .search {
-    padding: 5px 5px;
-    border-radius: 10px;
+  padding: 5px 5px;
+  border-radius: 10px;
 
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #movies {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .movie {
-    width: 300px;
-    height: 780px;
-    padding: 23px;
-    margin: 50px 0px 30px 0px;
+  width: 300px;
+  height: 530px;
+  padding: 23px;
+  margin: 50px 0px 30px 0px;
 
-    background-color: #ffe2e2;
-    border: none;
-    box-shadow: 5px 10px 6px 0px #855858;
-    border-radius: 10px;
+  background-color: #ffe2e2;
+  border: none;
+  box-shadow: 5px 10px 6px 0px #855858;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+}
 
-    cursor: pointer;
+.detailpage_btn {
+  width: 300px;
+  border: none;
+  background-color: #ffc7c7;
+  color: #888;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 20px;
 }
 
 div > img {
-    border-radius: 10px;
-    margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .text > h3 {
-    text-align: center;
-    font-family: 'DNFBitBitv2';
-    font-size: 18px;
+  text-align: center;
+  font-family: "DNFBitBitv2";
+  font-size: 18px;
 }
 
 .text > p {
-    text-align: justify;
-    padding: 5px 15px;
+  text-align: justify;
+  padding: 5px 15px;
 }
 
 .text {
-    background-color: white;
+  background-color: white;
 }
 
 .overview {
-    background-color: #ffe2e2;
+  background-color: #ffe2e2;
 
-    font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
 }
 
 .voteAverage {
-    background-color: #ffe2e2;
+  background-color: #ffe2e2;
 
-    font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
 }
 
 .title {
-    background-color: #ffe2e2;
-    padding-bottom: 10px;
+  background-color: #ffe2e2;
+  padding-bottom: 10px;
 
-    letter-spacing: 1px;
-    text-align: center;
-    font-family: 'DNFBitBitv2';
+  letter-spacing: 1px;
+  text-align: center;
+  font-family: "DNFBitBitv2";
 }
 
 .home {
-    text-decoration: none;
-    color: #8785a2;
-    text-shadow: 3px -7px 0px #49475e;
+  font-size: 40px;
+  text-decoration: none;
+  color: #8785a2;
+  text-shadow: 3px -7px 0px #49475e;
 
-    border-bottom: 3px solid #49475e;
-    border-top: 3px solid #49475e;
+  border-bottom: 3px solid #49475e;
+  border-top: 3px solid #49475e;
+  font-family: "DNFBitBitv2";
 }
 
 #searchInput {
-    width: 250px;
-    padding: 3px 10px;
-    margin: 15px 5px 0px 0px;
+  width: 250px;
+  padding: 3px 10px;
+  margin: 15px 5px 0px 0px;
 
-    color: #49475e;
-    font-size: 1rem;
+  color: #49475e;
+  font-size: 1rem;
 
-    border: 3px solid #8785a2;
-    border-radius: 12px;
-    background-color: #8785a256;
+  border: 3px solid #8785a2;
+  border-radius: 12px;
+  background-color: #8785a256;
 
-    font-family: 'DNFBitBitv2';
+  font-family: "DNFBitBitv2";
 }
 
 #searchButton {
-    padding: 5px 10px;
-    margin: 15px 20px 3px 0px;
+  padding: 5px 10px;
+  margin: 15px 20px 3px 0px;
 
-    border-radius: 15px;
-    border: 3px solid transparent;
-    background-color: #8785a2;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  background-color: #8785a2;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    font-family: 'DNFBitBitv2';
-    color: #49475e;
+  font-family: "DNFBitBitv2";
+  color: #49475e;
 
-    transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 #searchButton:hover {
-    background-color: #8785a2;
-    color: #ffc7c7;
+  background-color: #8785a2;
+  color: #ffc7c7;
 }
 
 #goTop {
-    position: fixed;
-    right: 0;
-    bottom: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 
-    padding: 10px;
-    margin: 0px 25px 30px 0px;
+  padding: 10px;
+  margin: 0px 25px 30px 0px;
 
-    border-radius: 15px;
-    border: 3px solid #49475e7a;
-    background-color: #8785a2;
+  border-radius: 15px;
+  border: 3px solid #49475e7a;
+  background-color: #8785a2;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    color: #49475e;
-    font-size: 18px;
-    text-decoration: none;
-    font-family: 'DNFBitBitv2';
+  color: #49475e;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: "DNFBitBitv2";
 
-    opacity: 0.7;
+  opacity: 0.7;
 
-    transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 #goTop:hover {
-    background-color: #49475e;
-    color: #8785a2;
+  background-color: #49475e;
+  color: #8785a2;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
+
+
+.modal{
+  font-size: 30px;
+  word-break: break-all;
+  position: fixed;
+  width: 1000px;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  background-color:#fff;
+  z-index: 3;
+  opacity: 1;
+}
+
+#close {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  background-color: beige;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  font-size: 35px;
+  border-radius: 10px;
+}
+
+
