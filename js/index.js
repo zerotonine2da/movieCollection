@@ -16,12 +16,19 @@ fetch(
   .then((response) => response.json())
   .then((response) => {
     response.results.forEach((movie) => {
-      const template = `<div class = "movie" id = "${movie.id}" onclick ='displayShow()'>
+      const template = `
+                          <div class = "movie" id = "${movie.id}" onclick ='displayShow()'>
                             <img src ="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt=""/>
                             <div class = "text">
-                            <h3 class = "title">${movie.title}</h3>
+                              <h3 class = "title">${movie.title}</h3>
                             </div>
-                            <button class="detailpage_btn">영화 상세보기</button>
+                              <button class="detailpage_btn">영화 상세보기</button>
+                            </div>
+                            
+                            <div class="modal" id = "${movie.id}" style="display: none;">
+                              <div id="desc">${movie.overview}</div>
+                              <button id="close" onclick ='displayHide()'>X</button>
+
                             </div>`;
       document
         .querySelector("#movies")
@@ -70,16 +77,16 @@ document
 
 
 
-});
+  });
 
-function displayShow () {
-document.querySelector(".detailpage_btn").addEventListener('click',function(){
-  document.querySelector(".modal").style.display = 'flex';
-})
+function displayShow() {
+  document.querySelector(".detailpage_btn").addEventListener('click', function () {
+    document.querySelector(".modal").style.display = 'flex';
+  })
 }
 
-
-document.getElementById("close").addEventListener('click',function(){
-  document.querySelector(".modal").style.display = 'none';
-})
-
+function displayHide() {
+  document.getElementById("close").addEventListener('click', function () {
+    document.querySelector(".modal").style.display = 'none';
+  })
+}
