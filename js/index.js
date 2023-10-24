@@ -1,3 +1,5 @@
+
+
 const options = {
   method: "GET",
   headers: {
@@ -14,7 +16,7 @@ fetch(
   .then((response) => response.json())
   .then((response) => {
     response.results.forEach((movie) => {
-      const template = `<div class = "movie" id = "${movie.id}" onclick ='seeid(this.id)'>
+      const template = `<div class = "movie" id = "${movie.id}" onclick ='displayShow()'>
                             <img src ="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt=""/>
                             <div class = "text">
                             <h3 class = "title">${movie.title}</h3>
@@ -70,12 +72,14 @@ document
 
 });
 
+function displayShow () {
+document.querySelector(".detailpage_btn").addEventListener('click',function(){
+  document.querySelector(".modal").style.display = 'flex';
+})
+}
 
 
 document.getElementById("close").addEventListener('click',function(){
   document.querySelector(".modal").style.display = 'none';
 })
 
-document.querySelector(".movie").addEventListener('click',function(){
-  document.querySelector(".modal").style.display = 'block';
-})

@@ -79,10 +79,10 @@ header > div {
   border: none;
   box-shadow: 5px 10px 6px 0px #855858;
   border-radius: 10px;
-
   cursor: pointer;
   position: relative;
 }
+
 .detailpage_btn {
   width: 300px;
   border: none;
