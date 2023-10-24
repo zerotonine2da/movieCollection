@@ -79,10 +79,11 @@ document
 
 
   });
- 
+
 
 function displayShow() {
-  document.querySelectorAll(".detailpage_btn").forEach(function(btn){
+  console.log(document.querySelectorAll(".detailpage_btn"))
+  document.querySelectorAll(".detailpage_btn").forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelector(".modal").style.display = 'flex';
     })
@@ -90,9 +91,10 @@ function displayShow() {
 }
 
 function displayHide() {
-  document.querySelectorAll(".close").forEach(function(btn){
+  document.querySelectorAll(".close").forEach(function (btn) {
     btn.addEventListener('click', function () {
-      document.querySelector(".modal").style.display = 'none';
+    document.querySelector(".modal").style.display = 'none';
+
+    })
   })
-})
 }
