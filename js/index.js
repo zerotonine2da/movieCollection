@@ -75,17 +75,19 @@ document
   });
 
 function displayShow() {
-  document.querySelectorAll(".detailpage_btn").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      document.querySelector(".modal").style.display = "flex";
+  document.querySelectorAll(".detailpage_btn").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const modals = document.querySelectorAll(".modal");
+      console.log(modals[index]);
+      modals[index].style.display = "flex";
     });
   });
 }
-
 function displayHide() {
-  document.querySelectorAll(".close").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      document.querySelector(".modal").style.display = "none";
+  document.querySelectorAll(".close").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const modals = document.querySelectorAll(".modal");
+      modals[index].style.display = "none";
     });
   });
 }
