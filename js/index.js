@@ -1,5 +1,3 @@
-
-
 const options = {
   method: "GET",
   headers: {
@@ -42,7 +40,6 @@ function seeid(clicked_id) {
   alert(`영화의 ID는 ${clicked_id}입니다.`);
 }
 
-
 // 검색 버튼
 const searchButton = document.getElementById("searchButton");
 
@@ -66,7 +63,6 @@ function performSearch() {
 // 검색 버튼 클릭 시 검색 시작하는 이벤트
 searchButton.addEventListener("click", performSearch);
 
-
 // 엔터 키를 누를 때도 검색
 document
   .getElementById("searchInput")
@@ -74,19 +70,18 @@ document
     if (event.key === "Enter") {
       performSearch();
     }
-
-
-
   });
 
 function displayShow() {
-  document.querySelector(".detailpage_btn").addEventListener('click', function () {
-    document.querySelector(".modal").style.display = 'flex';
-  })
+  document
+    .querySelector(".detailpage_btn")
+    .addEventListener("click", function () {
+      document.querySelector(".modal").style.display = "block";
+    });
 }
 
 function displayHide() {
-  document.getElementById("close").addEventListener('click', function () {
-    document.querySelector(".modal").style.display = 'none';
-  })
+  document.getElementById("close").addEventListener("click", function () {
+    document.querySelector(".modal").style.display = "none";
+  });
 }
