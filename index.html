@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="css/index.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
         <link href="css/reset.css" rel="stylesheet" />
-        <script defer src="js/index.js"></script>
+
 
         <title>movieCollection</title>
     </head>
+
     <body>
-      123
-    </body>
+        <header>
+            <div>
+                <h1><a class="home" href="./index.html">MOVIE</a></h1>
+                <div class="search" id="searchbar">
+                    <input type="text" id="searchInput" autocomplete="off" placeholder="영화 검색..." />
+                    <button type="submit" id="searchButton">검색</button>
+                </div>
+            </div>
+        </header>
+        <main id="movies">
+          <div class="modal" style="display: none;">
+            <div id="desc">adsfasdfasdasdsdfasdfasdfasdfadfsdfasdfasdfasdfasdfasdfasfasdfasdfasdfasfafafasdf</div>
+            <button id="close">X</button>
+
+          </div>
+        </main>
+
+        <footer>
+            <a href="#" id="goTop">TOP</a>
+            <p></p>
+        </footer>
+        <script src="js/index.js"></script>
+      </body>
+
 </html>
