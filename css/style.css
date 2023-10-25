@@ -79,10 +79,10 @@ header > div {
   border: none;
   box-shadow: 5px 10px 6px 0px #855858;
   border-radius: 10px;
-
   cursor: pointer;
   position: relative;
 }
+
 .detailpage_btn {
   width: 300px;
   border: none;
@@ -215,3 +215,37 @@ div > img {
 html {
   scroll-behavior: smooth;
 }
+
+
+
+
+.modal{
+  font-size: 30px;
+  word-break: break-all;
+  position: fixed;
+  width: 1000px;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  background-color:#fff;
+  z-index: 3;
+  opacity: .9;
+  border-radius: 10px;
+}
+
+.close {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  background-color: beige;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  right: 0;
+
+  font-size: 35px;
+  border-radius: 10px;
+  outline: none;
+}
+

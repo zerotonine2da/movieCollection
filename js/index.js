@@ -14,17 +14,28 @@ fetch(
   .then((response) => response.json())
   .then((response) => {
     response.results.forEach((movie) => {
-      const template = `<div class = "movie" id = "${movie.id}" onclick ='seeid(this.id)'>
+      const template = `
+                          <div class = "movie" id = "${movie.id}" >
                             <img src ="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt=""/>
                             <div class = "text">
-                            <h3 class = "title">${movie.title}</h3>
+                              <h3 class = "title">${movie.title}</h3>
                             </div>
-                            <button class="detailpage_btn">영화 상세보기</button>
+                              <button class="detailpage_btn">영화 상세보기</button>
+                            </div>
+                            
+                            <div class="modal" id = "${movie.id}" style="display: none;">
+                              <div class="desc">${movie.overview}</div>
+                              <button class="close">X</button>
+
                             </div>`;
       document
         .querySelector("#movies")
         .insertAdjacentHTML("beforeend", template);
     });
+
+    displayShow();
+    displayHide();
+    windowClickHide();
   })
   .catch((err) => console.error(err));
 
@@ -64,3 +75,34 @@ document
       performSearch();
     }
   });
+
+function displayShow() {
+  document.querySelectorAll(".detailpage_btn").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const modals = document.querySelectorAll(".modal");
+      console.log(modals[index]);
+      modals[index].style.display = "flex";
+    });
+  });
+
+}
+
+
+
+
+
+function displayHide() {
+  document.querySelectorAll(".close").forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const modals = document.querySelectorAll(".modal");
+      modals[index].style.display = "none";
+      }
+    );
+  });
+}
+
+function windowClickHide () {
+  window.addEventListener('click',function(){
+    displayHide();
+  })
+}
