@@ -24,9 +24,10 @@ fetch(
                             </div>
                             
                             <div class="modal" id = "${movie.id}" style="display: none;">
-                              <div class="desc">${movie.overview}</div>
-                              <button class="close">X</button>
-
+                              <div class="popup">
+                                <div class="desc">${movie.overview}</div>
+                                <button class="close">X</button>
+                              </div>
                             </div>`;
       document
         .querySelector("#movies")
@@ -83,18 +84,19 @@ function displayShow() {
       modals[index].style.display = "flex";
     });
   });
-
 }
-
 
 function displayHide() {
   document.querySelectorAll(".close").forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const modals = document.querySelectorAll(".modal");
       modals[index].style.display = "none";
-      }
-    );
+    });
   });
 }
 
-
+function windowClickHide() {
+  window.addEventListener("click", function () {
+    displayHide();
+  });
+}
