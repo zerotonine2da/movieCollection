@@ -32,8 +32,10 @@ fetch(
         .querySelector("#movies")
         .insertAdjacentHTML("beforeend", template);
     });
+
     displayShow();
     displayHide();
+    windowClickHide();
   })
   .catch((err) => console.error(err));
 
@@ -82,7 +84,10 @@ function displayShow() {
       modals[index].style.display = "flex";
     });
   });
+
 }
+
+
 
 
 
@@ -94,4 +99,10 @@ function displayHide() {
       }
     );
   });
+}
+
+function windowClickHide () {
+  window.addEventListener('click',function(){
+    displayHide();
+  })
 }
