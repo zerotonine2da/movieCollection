@@ -35,7 +35,6 @@ fetch(
 
     displayShow();
     displayHide();
-    windowClickHide();
   })
   .catch((err) => console.error(err));
 
@@ -88,9 +87,6 @@ function displayShow() {
 }
 
 
-
-
-
 function displayHide() {
   document.querySelectorAll(".close").forEach((btn, index) => {
     btn.addEventListener("click", () => {
@@ -101,8 +97,4 @@ function displayHide() {
   });
 }
 
-function windowClickHide () {
-  window.addEventListener('click',function(){
-    displayHide();
-  })
-}
+
