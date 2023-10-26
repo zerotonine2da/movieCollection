@@ -51,12 +51,15 @@ function drawCard(sortType) {
                                 </div>
                                 </div>
                                 <button class="close">X</button>
+                                <div id = "review_show">
+                                <div class ="showText"></div>
+                              </div>
                               </div>
                             </div>`;
         document.querySelector('#movies').insertAdjacentHTML('beforeend', template);
-        displayShow();
-        displayHide();
     });
+    displayShow();
+    displayHide();
 }
 
 // 카드를 누르면 id 뜨도록
@@ -95,6 +98,7 @@ document.getElementById('searchInput').addEventListener('keyup', function (event
 });
 
 function displayShow() {
+    console.log(2);
     document.querySelectorAll('.detailpage_btn').forEach((btn, index) => {
         btn.addEventListener('click', () => {
             const modals = document.querySelectorAll('.modal');
@@ -106,6 +110,7 @@ function displayShow() {
     const $reviewer = document.querySelector('.reviewer');
     const $reviewvlaue = document.querySelector('.review_area');
     const $review_pw = document.querySelector('.review_pw');
+    const $review_show = document.querySelector('.review_pw');
 
     inputvalue_review.addEventListener('click', () => {
         localGetitem($reviewer.value, $reviewvlaue.value);
@@ -132,12 +137,16 @@ const localGetitem = (reviewer, reviewvlaue) => {
     localStorage.setItem(reviewer, reviewvlaue);
 };
 
+//로컬스토리지 읽기
+const localShowitem = (reviewer) => {
+    localStorage.getItem(reviewer);
+};
+
 //
 //[정렬]
 document.getElementById('orderType').addEventListener('change', function (event) {
     const orderType = document.getElementById('orderType');
     const selectType = orderType.options[orderType.selectedIndex].value;
-    console.log(selectType);
 
     if (selectType === '1') {
         //선택 (원래대로)
