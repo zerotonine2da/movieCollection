@@ -131,3 +131,58 @@ function windowClickHide() {
 const localGetitem = (reviewer, reviewvlaue) => {
     localStorage.setItem(reviewer, reviewvlaue);
 };
+
+//[정렬]
+document.getElementById('orderType').addEventListener('change', function (event) {
+    const orderType = document.getElementById('orderType');
+    const selectType = orderType.options[orderType.selectedIndex].value;
+    console.log(selectType);
+
+    if (selectType === '1') {
+        //선택 (원래대로)
+        drawCard(data);
+    } else if (selectType === '2') {
+        //평점순
+        voteAverage();
+    } else if (selectType === '3') {
+        //제목순
+        orderABC();
+    } else if (selectType === '4') {
+        //개봉일순
+        releaseDate();
+    }
+});
+
+//[정렬1] 평점순
+function voteAverage() {
+    let sortVoteRate = data
+        .map((v) => v)
+        .sort(function (a, b) {
+            return b.vote_average - a.vote_average;
+        });
+    drawCard(sortVoteRate);
+}
+
+//[정렬2] 제목순 (가나다순)
+function orderABC() {
+    let sortAZ = data
+        .map((v) => v)
+        .sort(function (a, b) {
+            return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
+        });
+
+    drawCard(sortAZ);
+}
+
+//[정렬3]개봉일순
+function releaseDate() {
+    console.log(data);
+
+    let sortVoteRate = data
+        .map((v) => v)
+        .sort(function (a, b) {
+            return b.release_date.replaceAll('-', '') - a.release_date.replaceAll('-', '');
+        });
+
+    drawCard(sortVoteRate);
+}
