@@ -235,6 +235,7 @@ html {
   padding: 2rem;
   border-radius: 10px;
   font-size: 30px;
+  overflow-y: scroll;
 }
 
 .close {
@@ -257,4 +258,84 @@ html {
   .popup {
     left:10%;
   }
+}
+/*모달 창안에 있는 css*/
+.moviemodal{
+  
+  position: absolute;
+  top: 30px;
+  left: 400px;
+  height: 400px;
+  width: 400px;
+}
+.movie_t{
+  margin-top: 10px;
+  border:5px groove;
+  display : flex;
+  justify-content : center;
+}
+
+.desc{
+  margin-top: 30px;
+  border:5px groove;
+  display : flex;
+  justify-content : center;
+  font-size:  30px;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.moivedate{
+  border:5px groove;
+  display : flex;
+  justify-content : center;
+  margin-top: 20px;
+}
+
+.movie_score{
+  border:5px groove;
+  display : flex;
+  justify-content : center;
+  margin-top: 20px;
+}
+.movie_review{
+  border:5px groove;
+  height: 600px;
+  width: 770px;
+  overflow-y: auto;
+}
+.review_title{
+  margin-bottom: 10px;
+  display : flex;
+  justify-content : center;
+}
+.reviewer{
+  height: 30px;
+}
+.inputtext{
+  font-size: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+  width: 300px;
+}
+.review_area{
+  width: 700px;
+  height: 400px;
+  resize: none;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+.pwdarea{
+  font-size: 20px;
+  float: right;
+  margin-right: 60px;
+}
+.review_pw{
+  width: 100px;
+  height: 20px;
+}
+.inputvalue_review{
+  width: 40px;
+  height: 30px;
 }
