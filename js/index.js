@@ -57,9 +57,9 @@ function drawCard(sortType) {
                               </div>
                             </div>`;
     document.querySelector("#movies").insertAdjacentHTML("beforeend", template);
-    displayShow();
-    displayHide();
   });
+  displayShow();
+  displayHide();
 }
 
 // 카드를 누르면 id 뜨도록
@@ -100,20 +100,24 @@ document
   });
 
 function displayShow() {
-  const inputvalue_review = document.querySelector(".inputvalue_review");
-  const $reviewer = document.querySelector(".reviewer");
-  const $reviewvlaue = document.querySelector(".review_area");
-  const $review_pw = document.querySelector(".review_pw");
-
   document.querySelectorAll(".detailpage_btn").forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const modals = document.querySelectorAll(".modal");
-      console.log(index);
       modals[index].style.display = "flex";
+    });
+  });
 
-      inputvalue_review.addEventListener("click", () => {
-        modals[index].localGetitem($reviewer.value, $reviewvlaue.value, index);
-      });
+  const inputvalue_review = document.querySelectorAll(".inputvalue_review");
+  const $reviewer = document.querySelectorAll(".reviewer");
+  const $reviewvlaue = document.querySelectorAll(".review_area");
+  const $review_pw = document.querySelectorAll(".review_pw");
+
+  inputvalue_review.forEach((reviewBtn, index) => {
+    reviewBtn.addEventListener("click", () => {
+      let reviewer = $reviewer[index].value;
+      let reviewvlaue = $reviewvlaue[index].value;
+      let review_pw = $review_pw[index].value;
+      localGetitem(reviewer, reviewvlaue);
     });
   });
 }
