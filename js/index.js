@@ -95,8 +95,4 @@ function displayHide() {
   });
 }
 
-function windowClickHide() {
-  window.addEventListener("click", function () {
-    displayHide();
-  });
-}
+
