@@ -51,9 +51,6 @@ function drawCard(sortType) {
                                 </div>
                                 </div>
                                 <button class="close">X</button>
-                                <div id = "review_show">
-                                <div class ="showText"></div>
-                              </div>
                               </div>
                             </div>`;
         document.querySelector('#movies').insertAdjacentHTML('beforeend', template);
@@ -98,7 +95,6 @@ document.getElementById('searchInput').addEventListener('keyup', function (event
 });
 
 function displayShow() {
-    console.log(2);
     document.querySelectorAll('.detailpage_btn').forEach((btn, index) => {
         btn.addEventListener('click', () => {
             const modals = document.querySelectorAll('.modal');
@@ -106,14 +102,18 @@ function displayShow() {
         });
     });
 
-    const inputvalue_review = document.querySelector('.inputvalue_review');
-    const $reviewer = document.querySelector('.reviewer');
-    const $reviewvlaue = document.querySelector('.review_area');
-    const $review_pw = document.querySelector('.review_pw');
-    const $review_show = document.querySelector('.review_pw');
+    const inputvalue_review = document.querySelectorAll('.inputvalue_review');
+    const $reviewer = document.querySelectorAll('.reviewer');
+    const $reviewvlaue = document.querySelectorAll('.review_area');
+    const $review_pw = document.querySelectorAll('.review_pw');
 
-    inputvalue_review.addEventListener('click', () => {
-        localGetitem($reviewer.value, $reviewvlaue.value);
+    inputvalue_review.forEach((reviewBtn, index) => {
+        reviewBtn.addEventListener('click', () => {
+            let reviewer = $reviewer[index].value;
+            let reviewvlaue = $reviewvlaue[index].value;
+            let review_pw = $review_pw[index].value;
+            localGetitem(reviewer, reviewvlaue);
+        });
     });
 }
 
@@ -137,16 +137,11 @@ const localGetitem = (reviewer, reviewvlaue) => {
     localStorage.setItem(reviewer, reviewvlaue);
 };
 
-//로컬스토리지 읽기
-const localShowitem = (reviewer) => {
-    localStorage.getItem(reviewer);
-};
-
-//
 //[정렬]
 document.getElementById('orderType').addEventListener('change', function (event) {
     const orderType = document.getElementById('orderType');
     const selectType = orderType.options[orderType.selectedIndex].value;
+    console.log(selectType);
 
     if (selectType === '1') {
         //선택 (원래대로)
