@@ -319,6 +319,7 @@ html {
 }
 .review_title {
     margin-bottom: 10px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
@@ -351,4 +352,22 @@ html {
 .inputvalue_review {
     width: 40px;
     height: 30px;
+}
+
+.getreviewer{
+border: 5px outset;
+width: 200px;
+font-size: 25px;
+ margin-bottom: 10px;
+}
+.getvalue{
+  border: 5px outset;
+  height: 200px;
+}
+
+.movie_review2 {
+  border: 5px groove;
+  height: 600px;
+  width: 770px;
+  overflow-y: auto;
 }

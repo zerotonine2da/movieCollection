@@ -53,6 +53,11 @@ function drawCard(sortType) {
                                 <button class="inputvalue_review">입력</button>
                                 </div>
                                 </div>
+                                <div class = review_title><작성된 댓글창></div>
+                                <button class="getvaluee_review">작성된 리뷰 불러오기</button>
+                                <div class =movie_review2>
+                                
+                                </div>
                                 <button class="close">X</button>
                               </div>
                             </div>`;
@@ -111,13 +116,25 @@ function displayShow() {
   const $reviewer = document.querySelectorAll(".reviewer");
   const $reviewvlaue = document.querySelectorAll(".review_area");
   const $review_pw = document.querySelectorAll(".review_pw");
+  const $getvaluee_review = document.querySelectorAll(".getvaluee_review");
 
   inputvalue_review.forEach((reviewBtn, index) => {
     reviewBtn.addEventListener("click", () => {
       let reviewer = $reviewer[index].value;
       let reviewvlaue = $reviewvlaue[index].value;
       let review_pw = $review_pw[index].value;
+      localSetitem(reviewer, reviewvlaue);
+      addReview(reviewer, reviewvlaue);
+    });
+  });
+  //스토리지에 저장된 아이템을 불러온다.
+  $getvaluee_review.forEach((getbtn, index) => {
+    getbtn.addEventListener("click", () => {
+      let reviewer = $reviewer[index].value;
+      let reviewvlaue = $reviewvlaue[index].value;
       localGetitem(reviewer, reviewvlaue);
+      loadReviews(reviewer, reviewvlaue);
+      addReviewToTemplate(reviewer, reviewvlaue);
     });
   });
 }
@@ -138,10 +155,15 @@ function windowClickHide() {
 }
 
 //로컬스토리지에다가 저장
-const localGetitem = (reviewer, reviewvlaue) => {
+const localSetitem = (reviewer, reviewvlaue) => {
   localStorage.setItem(reviewer, reviewvlaue);
 };
 
+//로컬스토리지 저장된 key value값 가져오기
+const localGetitem = (reviewer, reviewvlaue) => {
+  console.log(reviewer, reviewvlaue);
+  localStorage.getItem(reviewer, reviewvlaue);
+};
 //[정렬]
 document
   .getElementById("orderType")
