@@ -106,6 +106,15 @@ function displayShow() {
       modals[index].style.display = "flex";
     });
   });
+
+  const inputvalue_review = document.querySelector(".inputvalue_review");
+  const $reviewer = document.querySelector(".reviewer");
+  const $reviewvlaue = document.querySelector(".review_area");
+  const $review_pw = document.querySelector(".review_pw");
+
+  inputvalue_review.addEventListener("click", () => {
+    localGetitem($reviewer.value, $reviewvlaue.value);
+  });
 }
 
 function displayHide() {
@@ -122,19 +131,6 @@ function windowClickHide() {
     displayHide();
   });
 }
-
-const $inputvalue_review = document.querySelector(".inputvalue_review");
-const $reviewer = document.querySelector(".reviewer");
-const $reviewvlaue = document.querySelector(".review_area");
-const $review_pw = document.querySelector(".review_pw");
-
-$inputvalue_review.addEventListener("click", function (e) {
-  if ($reviewer.value === "" || $reviewvlaue.value === "") {
-    alert("작성자 또는 리뷰 내용을 입력하시오");
-  } else {
-    localGetitem($reviewer.value, $reviewvlaue.value);
-  }
-});
 
 //로컬스토리지에다가 저장
 const localGetitem = (reviewer, reviewvlaue) => {
