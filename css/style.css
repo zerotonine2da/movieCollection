@@ -216,18 +216,25 @@ html {
   scroll-behavior: smooth;
 }
 
-
-.modal{
-  font-size: 30px;
-  word-break: break-all;
+.modal {
   position: fixed;
-  width: 1000px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+}
+.popup {
+  position: absolute;
+  width: 800px;
   height: 800px;
-  justify-content: center;
-  align-items: center;
-  background-color:#fff;
-  z-index: 3;
-  opacity: 1;
+  left: 25%;
+  top: 30px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: 30px;
 }
 
 .close {
@@ -240,10 +247,14 @@ html {
   height: 35px;
   top: 0;
   right: 0;
-
   font-size: 35px;
   border-radius: 10px;
   outline: none;
 }
 
 
+@media (max-width: 1200px) {
+  .popup {
+    left:10%;
+  }
+}
