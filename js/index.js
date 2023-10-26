@@ -127,6 +127,7 @@ const localGetitem = (reviewer, reviewvlaue) => {
     localStorage.setItem(reviewer, reviewvlaue);
 };
 
+//
 //[정렬]
 document.getElementById('orderType').addEventListener('change', function (event) {
     const orderType = document.getElementById('orderType');
