@@ -181,7 +181,7 @@ function windowClickHide() {
 const localSetitem = (reviewer, reviewvalue) => {
   const movie_ID = document.querySelector(".movie").id;
   const movie_data = JSON.parse(reviewer, reviewvalue);
-  localStorage.setItem(movie_ID, JSON.parse(movie_data));
+  localStorage.setItem(movie_ID, JSON.stringify(movie_data));
   console.log(localStorage.setItem(movie_ID, JSON.stringify(movie_data)));
 };
 
