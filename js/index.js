@@ -253,26 +253,4 @@ function addReviewToTemplate(reviewer, reviewvlaue) {
     reviewsContainer.innerHTML += reviewTemplate;
 }
 
-// 리뷰 작성 버튼 클릭 시 호출되는 함수
-function addReview(index) {
-    const reviewer = $reviewer[index].value;
-    const reviewvlaue = $reviewvlaue[index].value;
-
-    // 데이터를 로컬 스토리지에 저장
-    localSetitem(reviewer, reviewvlaue);
-
-    // 리뷰 템플릿에 추가
-    addReviewToTemplate(reviewer, reviewvlaue);
-}
-
-// 로컬 스토리지에서 저장된 리뷰를 불러와 템플릿에 추가하는 함수
-function loadReviews() {
-    for (let i = 0; i < localStorage.length; i++) {
-        const reviewer = localStorage.key(i);
-        const reviewvlaue = localStorage.getItem(reviewer);
-        addReviewToTemplate(reviewer, reviewvlaue);
-    }
-}
-
-// 페이지 로드 시 저장된 리뷰 불러오기
-window.addEventListener('load', loadReviews);
+// push용 주석
