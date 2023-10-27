@@ -150,9 +150,9 @@ function displayHide() {
 
 //로컬스토리지에다가 저장
 const localSetitem = (reviewer, reviewvalue) => {
-  localStorage.setItem(reviewer, reviewvalue);
-
-  JSON.stringify(reviewer);
+  const movie_id = localStorage.getItem(`${}`);
+  const movie_data = localStorage.getItem(`${reviewer},${reviewvalue}`);
+  console.log(localStorage.setItem(movie_id, JSON.stringify(movie_data)));
 };
 
 //로컬스토리지 저장된 key value값 가져오기
@@ -160,6 +160,7 @@ const localGetitem = (reviewer, reviewvalue) => {
   console.log(reviewer, reviewvalue);
   localStorage.getItem(reviewer, reviewvalue);
 };
+
 //[정렬]
 document
   .getElementById("orderType")
