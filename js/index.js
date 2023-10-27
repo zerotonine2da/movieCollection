@@ -84,6 +84,7 @@ function drawCard(sortType) {
                             </div>`;
     document.querySelector("#movies").insertAdjacentHTML("beforeend", template);
   });
+  displayShow();
   displayHide();
 }
 
@@ -134,31 +135,30 @@ function displayShow() {
 }
 
 function review() {
-  const inputvalue_review = document.querySelectorAll(".inputvalue_review");
-  const $reviewer = document.querySelectorAll(".reviewer");
-  const $reviewvlaue = document.querySelectorAll(".review_area");
-  const $review_pw = document.querySelectorAll(".review_pw");
-  const $getvaluee_review = document.querySelectorAll(".getvaluee_review");
+  const inputvalue_review = document.querySelector(".inputvalue_review");
+  const $reviewer = document.querySelector(".reviewer");
+  const $reviewvalaue = document.querySelector(".review_area");
+  const $review_pw = document.querySelector(".review_pw");
+  const $getvaluee_review = document.querySelector(".getvaluee_review");
 
-  inputvalue_review.forEach((reviewBtn, index) => {
-    reviewBtn.addEventListener("click", () => {
-      let reviewer = $reviewer[index].value;
-      let reviewvlaue = $reviewvlaue[index].value;
-      let review_pw = $review_pw[index].value;
+  inputvalue_review.addEventListener("click", () => {
+    let reviewer = $reviewer.value;
+    let reviewvalaue = $reviewvalaue.value;
+    const movieId = document.querySelector(".movie").id;
 
-      localSetitem(reviewer, reviewvlaue);
-      addReviewToTemplate(reviewer, reviewvlaue);
-      //console.log(localSetitem(reviewer, reviewvlaue));
-    });
+    localSetitem(movieId, reviewer, reviewvalaue);
+    addReviewToTemplate(movieId, reviewer, reviewvalaue);
+
+    $reviewer.value = "";
+    $reviewvalaue.value = "";
+    $review_pw.value = "";
   });
 
-  //스토리지에 저장된 아이템을 불러온다.
-  // $getvaluee_review.forEach((getbtn, index) => {
-  //   getbtn.addEventListener("click", () => {
-  //     let reviewer = $reviewer[index].value;
-  //     let reviewvlaue = $reviewvlaue[index].value;
-  //     localGetitem(reviewer, reviewvlaue);
-  //   });
+  // //스토리지에 저장된 아이템을 불러온다.
+  // $getvaluee_review.addEventListener("click", () => {
+  //   let reviewer = $reviewer.value;
+  //   let reviewvalue = $reviewvalue.value;
+  //   localGetitem(reviewer, reviewvalue);
   // });
 }
 
@@ -171,24 +171,17 @@ function displayHide() {
   });
 }
 
-function windowClickHide() {
-  window.addEventListener("click", function () {
-    displayHide();
-  });
-}
-
 //로컬스토리지에다가 저장
-const localSetitem = (reviewer, reviewvalue) => {
-  const movie_ID = document.querySelector(".movie").id;
-  const movie_data = JSON.parse(reviewer, reviewvalue);
-  localStorage.setItem(movie_ID, JSON.stringify(movie_data));
-  console.log(localStorage.setItem(movie_ID, JSON.stringify(movie_data)));
+const localSetitem = (movieId, reviewer, reviewvlaue) => {
+  localStorage.setItem(movieId, reviewer + reviewvlaue);
+
+  JSON.stringify(movieId);
 };
 
 //로컬스토리지 저장된 key value값 가져오기
-const localGetitem = (reviewer, reviewvalue) => {
-  console.log(reviewer, reviewvalue);
-  localStorage.getItem(reviewer, reviewvalue);
+const localGetitem = (reviewer, reviewvlaue) => {
+  console.log(reviewer, reviewvlaue);
+  localStorage.getItem(reviewer, reviewvlaue);
 };
 
 //[정렬]
@@ -239,6 +232,8 @@ function orderABC() {
 
 //[정렬3]개봉일순
 function releaseDate() {
+  console.log(data);
+
   let sortVoteRate = data
     .map((v) => v)
     .sort(function (a, b) {
@@ -251,16 +246,22 @@ function releaseDate() {
 }
 
 // 리뷰를 템플릿에 추가하는 함수
-function addReviewToTemplate(reviewer, reviewvlaue) {
+function addReviewToTemplate(reviewer, reviewvalue) {
   // 템플릿에 리뷰 추가
   const reviewTemplate = `
     <div class="review">
-      <div class="reviewer-name">${reviewer}</div>
-      <div class="review-text">${reviewvlaue}</div>
+      <div class="getreviewer">${reviewer}</div>
+      <div class="getvalue">${reviewvalue}</div>
     </div>
   `;
-
+  // if (reviewer === "" || reviewvalue === "") {
+  //   alert("저장된 리뷰가 없습니다. ");
+  // } else {
   // 템플릿을 어느 요소에 추가할지 지정한 후 추가
   const reviewsContainer = document.querySelector(".movie_review2");
   reviewsContainer.innerHTML += reviewTemplate;
+  //$("#movie_review2").append(reviewTemplate);
+  //}
 }
+
+// push용 주석
