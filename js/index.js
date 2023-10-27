@@ -84,7 +84,6 @@ function drawCard(sortType) {
                             </div>`;
     document.querySelector("#movies").insertAdjacentHTML("beforeend", template);
   });
-  //displayShow();
   displayHide();
 }
 
@@ -146,19 +145,21 @@ function review() {
       let reviewer = $reviewer[index].value;
       let reviewvlaue = $reviewvlaue[index].value;
       let review_pw = $review_pw[index].value;
+
       localSetitem(reviewer, reviewvlaue);
-      addReview(reviewer, reviewvlaue);
-    });
-  });
-  //스토리지에 저장된 아이템을 불러온다.
-  $getvaluee_review.forEach((getbtn, index) => {
-    getbtn.addEventListener("click", () => {
-      let reviewer = $reviewer[index].value;
-      let reviewvlaue = $reviewvlaue[index].value;
-      localGetitem(reviewer, reviewvlaue);
       addReviewToTemplate(reviewer, reviewvlaue);
+      //console.log(localSetitem(reviewer, reviewvlaue));
     });
   });
+
+  //스토리지에 저장된 아이템을 불러온다.
+  // $getvaluee_review.forEach((getbtn, index) => {
+  //   getbtn.addEventListener("click", () => {
+  //     let reviewer = $reviewer[index].value;
+  //     let reviewvlaue = $reviewvlaue[index].value;
+  //     localGetitem(reviewer, reviewvlaue);
+  //   });
+  // });
 }
 
 function displayHide() {
@@ -178,9 +179,10 @@ function windowClickHide() {
 
 //로컬스토리지에다가 저장
 const localSetitem = (reviewer, reviewvalue) => {
-  const movie_id = localStorage.getItem(`${movie.id}`);
-  const movie_data = localStorage.getItem(`${reviewer},${reviewvalue}`);
-  console.log(localStorage.setItem(movie_id, JSON.stringify(movie_data)));
+  const movie_ID = document.querySelector(".movie").id;
+  const movie_data = JSON.parse(reviewer, reviewvalue);
+  localStorage.setItem(movie_ID, JSON.parse(movie_data));
+  console.log(localStorage.setItem(movie_ID, JSON.stringify(movie_data)));
 };
 
 //로컬스토리지 저장된 key value값 가져오기
@@ -210,6 +212,8 @@ document
       //개봉일순
       releaseDate();
     }
+    displayShow();
+    review();
   });
 
 //[정렬1] 평점순
@@ -235,8 +239,6 @@ function orderABC() {
 
 //[정렬3]개봉일순
 function releaseDate() {
-  console.log(data);
-
   let sortVoteRate = data
     .map((v) => v)
     .sort(function (a, b) {
@@ -261,25 +263,4 @@ function addReviewToTemplate(reviewer, reviewvlaue) {
   // 템플릿을 어느 요소에 추가할지 지정한 후 추가
   const reviewsContainer = document.querySelector(".movie_review2");
   reviewsContainer.innerHTML += reviewTemplate;
-}
-
-// 리뷰 작성 버튼 클릭 시 호출되는 함수
-function addReview(index) {
-  const reviewer = $reviewer[index].value;
-  const reviewvlaue = $reviewvlaue[index].value;
-
-  // 데이터를 로컬 스토리지에 저장
-  localSetitem(reviewer, reviewvlaue);
-
-  // 리뷰 템플릿에 추가
-  addReviewToTemplate(reviewer, reviewvlaue);
-}
-
-// 로컬 스토리지에서 저장된 리뷰를 불러와 템플릿에 추가하는 함수
-function loadReviews() {
-  for (let i = 0; i < localStorage.length; i++) {
-    const reviewer = localStorage.key(i);
-    const reviewvlaue = localStorage.getItem(reviewer);
-    addReviewToTemplate(reviewer, reviewvlaue);
-  }
 }
