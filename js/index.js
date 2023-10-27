@@ -262,3 +262,5 @@ function addReviewToTemplate(reviewer, reviewvalue) {
   //$("#movie_review2").append(reviewTemplate);
   //}
 }
+
+// push용 주석
