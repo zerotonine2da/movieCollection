@@ -59,9 +59,9 @@ function drawCard(sortType) {
                               <img src ="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt=""/>
                               <div class ="moviemodal">
                               <h3 class="movie_t">${movie.title}</h3>
-                              <div class ="moivedate">개봉날짜</div>
+                              <div class ="moivedate">개봉날짜 : ${movie.release_date}</div>
                                 <div class="desc">${movie.overview}</div>
-                                <div class= movie_score>평점 : 0.0 </div>
+                                <div class= movie_score>평점 : ${movie.vote_average}</div>
                                 </div>
                                 <div class = review_title><리뷰창></div>
                                 <div class =movie_review>
@@ -147,7 +147,7 @@ function review() {
     const movieId = document.querySelector(".movie").id;
 
     localSetitem(movieId, reviewer, reviewvalaue);
-    addReviewToTemplate(movieId, reviewer, reviewvalaue);
+    addReviewToTemplate(movieId, "[" + reviewer + "]" + reviewvalaue);
 
     $reviewer.value = "";
     $reviewvalaue.value = "";
