@@ -131,9 +131,10 @@ function displayHide() {
 const localGetitem = (reviewer, reviewvlaue) => {
     localStorage.setItem(reviewer, reviewvlaue);
 };
+// 값을 
 
 //[정렬]
-document.getElementById('orderType').addEventListener('change', function (event) {
+document.getElementById('orderType').addEventListener('change', function () {
     const orderType = document.getElementById('orderType');
     const selectType = orderType.options[orderType.selectedIndex].value;
     console.log(selectType);
