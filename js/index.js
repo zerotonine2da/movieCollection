@@ -20,7 +20,6 @@ let data = {};
     data = result1.results;
     drawCard(result1.results);
     displayShow();
-    review();
   } catch (error) {
     console.error(error);
   }
@@ -75,7 +74,6 @@ function drawCard(sortType) {
                                 </div>
                                 </div>
                                 <div class = review_title><작성된 댓글창></div>
-                                <button class="getvaluee_review">작성된 리뷰 불러오기</button>
                                 <div class =movie_review2>
                                 
                                 </div>
@@ -84,7 +82,7 @@ function drawCard(sortType) {
                             </div>`;
     document.querySelector("#movies").insertAdjacentHTML("beforeend", template);
   });
-  displayShow();
+  // displayShow();
   displayHide();
 }
 
@@ -130,24 +128,25 @@ function displayShow() {
     btn.addEventListener("click", () => {
       const modals = document.querySelectorAll(".modal");
       modals[index].style.display = "flex";
+
+      review(index);
     });
   });
 }
-
-function review() {
-  const inputvalue_review = document.querySelector(".inputvalue_review");
-  const $reviewer = document.querySelector(".reviewer");
-  const $reviewvalaue = document.querySelector(".review_area");
-  const $review_pw = document.querySelector(".review_pw");
-  const $getvaluee_review = document.querySelector(".getvaluee_review");
+function review(index) {
+  const inputvalue_review =
+    document.querySelectorAll(".inputvalue_review")[index];
+  const $reviewer = document.querySelectorAll(".reviewer")[index];
+  const $reviewvalaue = document.querySelectorAll(".review_area")[index];
+  const $review_pw = document.querySelectorAll(".review_pw")[index];
 
   inputvalue_review.addEventListener("click", () => {
     let reviewer = $reviewer.value;
     let reviewvalaue = $reviewvalaue.value;
-    const movieId = document.querySelector(".movie").id;
+    const movieId = document.querySelectorAll(".movie")[index].id;
 
     localSetitem(movieId, reviewer, reviewvalaue);
-    addReviewToTemplate(movieId, "[" + reviewer + "]" + reviewvalaue);
+    addReviewToTemplate(index, movieId);
 
     $reviewer.value = "";
     $reviewvalaue.value = "";
@@ -173,9 +172,13 @@ function displayHide() {
 
 //로컬스토리지에다가 저장
 const localSetitem = (movieId, reviewer, reviewvlaue) => {
-  localStorage.setItem(movieId, reviewer + reviewvlaue);
-
-  JSON.stringify(movieId);
+  const currentReview = JSON.parse(localStorage.getItem("review"))
+    ? JSON.parse(localStorage.getItem("review"))
+    : [];
+  console.log(currentReview);
+  currentReview.push({ movieId, reviewer, reviewvlaue });
+  const addReview = JSON.stringify(currentReview);
+  localStorage.setItem("review", addReview);
 };
 
 //로컬스토리지 저장된 key value값 가져오기
@@ -245,22 +248,28 @@ function releaseDate() {
 }
 
 // 리뷰를 템플릿에 추가하는 함수
-function addReviewToTemplate(reviewer, reviewvalue) {
-  // 템플릿에 리뷰 추가
-  const reviewTemplate = `
+function addReviewToTemplate(index, movieId) {
+  const currentReview = JSON.parse(localStorage.getItem("review"));
+  const getmovieReview = currentReview.filter((item) => {
+    return item["movieId"] === movieId;
+  });
+  let reviewTemplate = "";
+  getmovieReview.forEach((item) => {
+    reviewTemplate += `
     <div class="review">
-      <div class="getreviewer">${reviewer}</div>
-      <div class="getvalue">${reviewvalue}</div>
+      <div class="getreviewer">${item.reviewer}</div>
+      <div class="getvalue">${item.reviewvalue}</div>
     </div>
   `;
+  });
+  // 템플릿에 리뷰 추가
+
   // if (reviewer === "" || reviewvalue === "") {
   //   alert("저장된 리뷰가 없습니다. ");
   // } else {
   // 템플릿을 어느 요소에 추가할지 지정한 후 추가
-  const reviewsContainer = document.querySelector(".movie_review2");
-  reviewsContainer.innerHTML += reviewTemplate;
+  const reviewsContainer = document.querySelectorAll(".movie_review2")[index];
+  reviewsContainer.innerHTML = reviewTemplate;
   //$("#movie_review2").append(reviewTemplate);
   //}
 }
-
-// push용 주석
