@@ -84,7 +84,6 @@ function drawCard(sortType) {
                             </div>`;
     document.querySelector("#movies").insertAdjacentHTML("beforeend", template);
   });
-  displayShow();
   displayHide();
 }
 
@@ -146,8 +145,8 @@ function review() {
     let reviewvalaue = $reviewvalaue.value;
     const movieId = document.querySelector(".movie").id;
 
-    localSetitem(movieId, reviewer, reviewvalaue);
-    addReviewToTemplate(movieId, reviewer, reviewvalaue);
+    localSetitem(movieId, reviewer + reviewvalaue);
+    addReviewToTemplate(reviewer, reviewvalaue);
 
     $reviewer.value = "";
     $reviewvalaue.value = "";
