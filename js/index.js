@@ -137,15 +137,15 @@ function review(index) {
   const inputvalue_review =
     document.querySelectorAll(".inputvalue_review")[index];
   const $reviewer = document.querySelectorAll(".reviewer")[index];
-  const $reviewvalaue = document.querySelectorAll(".review_area")[index];
+  const $reviewvalue = document.querySelectorAll(".review_area")[index];
   const $review_pw = document.querySelectorAll(".review_pw")[index];
 
   inputvalue_review.addEventListener("click", () => {
     let reviewer = $reviewer.value;
-    let reviewvalaue = $reviewvalaue.value;
+    let reviewvalue = $reviewvalue.value;
     const movieId = document.querySelectorAll(".movie")[index].id;
 
-    localSetitem(movieId, reviewer, reviewvalaue);
+    localSetitem(movieId, reviewer, reviewvalue);
     addReviewToTemplate(index, movieId);
 
     $reviewer.value = "";
@@ -171,20 +171,20 @@ function displayHide() {
 }
 
 //로컬스토리지에다가 저장
-const localSetitem = (movieId, reviewer, reviewvlaue) => {
+const localSetitem = (movieId, reviewer, reviewvalue) => {
   const currentReview = JSON.parse(localStorage.getItem("review"))
     ? JSON.parse(localStorage.getItem("review"))
     : [];
   console.log(currentReview);
-  currentReview.push({ movieId, reviewer, reviewvlaue });
+  currentReview.push({ movieId, reviewer, reviewvalue });
   const addReview = JSON.stringify(currentReview);
   localStorage.setItem("review", addReview);
 };
 
 //로컬스토리지 저장된 key value값 가져오기
-const localGetitem = (reviewer, reviewvlaue) => {
-  console.log(reviewer, reviewvlaue);
-  localStorage.getItem(reviewer, reviewvlaue);
+const localGetitem = (reviewer, reviewvalue) => {
+  console.log(reviewer, reviewvalue);
+  localStorage.getItem(reviewer, reviewvalue);
 };
 //[정렬]
 document
