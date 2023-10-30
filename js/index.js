@@ -149,7 +149,7 @@ function review(index) {
     addReviewToTemplate(index, movieId);
 
     $reviewer.value = "";
-    $reviewvalaue.value = "";
+    $reviewvalue.value = "";
     $review_pw.value = "";
   });
 
