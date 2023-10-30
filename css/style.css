@@ -7,23 +7,18 @@
 }
 
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
     format("woff");
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
-}
-
-* {
-  margin: 0;
-  padding: 0;
 }
 
 header {
   width: 100%;
   padding-top: 30px;
   padding-bottom: 50px;
-  height: 130px;
+  height: 180px;
 
   background-color: #ffc7c7;
   border-bottom: 7px solid #a87070;
@@ -46,15 +41,17 @@ footer {
   border-top: 7px solid #a87070;
 }
 
-form {
+/* form {
   display: flex;
   justify-content: center;
 
   font-size: 1.5rem;
-}
+} */
+
 header > div {
   padding-top: 20px;
 }
+
 .search {
   padding: 5px 5px;
   border-radius: 10px;
@@ -79,7 +76,7 @@ header > div {
   border: none;
   box-shadow: 5px 10px 6px 0px #855858;
   border-radius: 10px;
-  cursor: pointer;
+
   position: relative;
 }
 
@@ -118,13 +115,13 @@ div > img {
 .overview {
   background-color: #ffe2e2;
 
-  font-family: "Pretendard-Regular";
+  font-family: "GmarketSansMedium";
 }
 
 .voteAverage {
   background-color: #ffe2e2;
 
-  font-family: "Pretendard-Regular";
+  font-family: "GmarketSansMedium";
 }
 
 .title {
@@ -137,7 +134,7 @@ div > img {
 }
 
 .home {
-  font-size: 40px;
+  font-size: 4rem;
   text-decoration: none;
   color: #8785a2;
   text-shadow: 3px -7px 0px #49475e;
@@ -166,6 +163,8 @@ div > img {
   padding: 5px 10px;
   margin: 15px 20px 3px 0px;
 
+  width: 60px;
+
   border-radius: 15px;
   border: 3px solid transparent;
   background-color: #8785a2;
@@ -181,6 +180,40 @@ div > img {
 #searchButton:hover {
   background-color: #8785a2;
   color: #ffc7c7;
+}
+
+.detailpage_btn {
+  height: 30px;
+
+  cursor: pointer;
+  color: #a87070;
+  font-family: "DNFBitBitv2";
+
+  transition: all 0.4s;
+}
+
+.detailpage_btn:hover {
+  background-color: #a87070;
+  color: #ffc7c7;
+}
+
+#orderType {
+  /*추가*/
+  width: 100px;
+  padding: 5px 10px;
+  margin: 15px 20px 3px 0px;
+
+  border-radius: 15px;
+  border: 3px solid transparent;
+  background-color: #8785a2;
+
+  cursor: pointer;
+
+  text-align: center;
+  font-family: "DNFBitBitv2";
+  color: #49475e;
+
+  transition: all 0.4s;
 }
 
 #goTop {
@@ -235,6 +268,7 @@ html {
   padding: 2rem;
   border-radius: 10px;
   font-size: 30px;
+  overflow-y: scroll;
 }
 
 .close {
@@ -242,19 +276,210 @@ html {
   position: absolute;
   align-items: center;
   justify-content: center;
-  background-color: beige;
+  background-color: #ffc7c7;
+
+  margin-top: 5px;
+  margin-right: 5px;
+
   width: 35px;
   height: 35px;
   top: 0;
   right: 0;
-  font-size: 35px;
+  font-size: 25px;
   border-radius: 10px;
   outline: none;
-}
 
+  cursor: pointer;
+
+  font-family: "DNFBitBitv2";
+}
 
 @media (max-width: 1200px) {
   .popup {
-    left:10%;
+    left: 10%;
   }
+}
+/*모달 창안에 있는 css*/
+
+input:focus {
+  outline: none;
+}
+
+.moviemodal {
+  position: absolute;
+  top: 30px;
+  left: 400px;
+  height: 400px;
+  width: 400px;
+}
+.movie_t {
+  margin-top: 10px;
+  padding: 10px 0px 5px 0px;
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+
+  display: flex;
+  justify-content: center;
+
+  font-family: "GmarketSansMedium";
+}
+
+.desc {
+  margin-top: 30px;
+  padding: 10px 5px;
+
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  text-align: justify;
+  overflow-y: scroll;
+  height: 200px;
+
+  font-family: "GmarketSansMedium";
+}
+
+.moivedate {
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px 0px 5px 0px;
+
+  font-family: "GmarketSansMedium";
+}
+
+.movie_score {
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  padding: 10px 0px 5px 0px;
+
+  font-family: "GmarketSansMedium";
+}
+.movie_review {
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+  height: 560px;
+  width: 770px;
+  overflow-y: auto;
+
+  background-color: #ffc7c777;
+}
+.review_title {
+  margin-bottom: 10px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+
+  font-family: "GmarketSansMedium";
+}
+.reviewer {
+  height: 30px;
+  border: 3px solid #ffc7c7;
+  border-radius: 15px;
+
+  padding-left: 10px;
+
+  font-family: "GmarketSansMedium";
+}
+.inputtext {
+  font-size: 20px;
+  padding-top: 20px;
+  margin-left: 50%;
+  width: 310px;
+
+  font-family: "GmarketSansMedium";
+}
+.review_area {
+  width: 700px;
+  height: 400px;
+  resize: none;
+  margin-left: 18px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 1.2em;
+
+  outline: none;
+
+  padding: 10px 0px 0px 20px;
+
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+
+  font-family: "GmarketSansMedium";
+}
+.pwdarea {
+  font-size: 20px;
+  float: right;
+  margin-left: 60%;
+
+  font-family: "GmarketSansMedium";
+}
+.review_pw {
+  width: 120px;
+  height: 20px;
+
+  border: 3px solid #ffc7c7;
+  border-radius: 15px;
+}
+.inputvalue_review {
+  width: 45px;
+  height: 30px;
+  margin-right: 10px;
+
+  border: 3px solid #ffc7c7;
+  background-color: #ffc7c7;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-family: "GmarketSansMedium";
+  transition: all 0.4s;
+}
+
+.inputvalue_review:hover {
+  background-color: #a87070;
+  border: 3px solid #a87070;
+}
+
+/* form {
+  display: grid;
+} */
+
+.getreviewer {
+  border: 5px solid #ffc7c7;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 9px 0px 2px 5px;
+  width: 200px;
+  font-size: 25px;
+  margin-bottom: 10px;
+  background-color: #fff;
+
+  font-family: "GmarketSansMedium";
+}
+.getvalue {
+  border: 5px solid #ffc7c7;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 9px 0px 5px 5px;
+  height: 200px;
+  background-color: #fff;
+
+  font-family: "GmarketSansMedium";
+}
+
+.movie_review2 {
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
+  height: 600px;
+  width: 770px;
+  overflow-y: auto;
+  background-color: #ffc7c777;
 }
