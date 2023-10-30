@@ -391,7 +391,7 @@ input:focus {
 .inputtext {
   font-size: 20px;
   padding-top: 20px;
-  margin-left: 55%;
+  margin-left: 50%;
   width: 310px;
 
   font-family: "GmarketSansMedium";
@@ -431,6 +431,7 @@ input:focus {
 .inputvalue_review {
   width: 45px;
   height: 30px;
+  margin-right: 10px;
 
   border: 3px solid #ffc7c7;
   background-color: #ffc7c7;
@@ -447,25 +448,38 @@ input:focus {
   border: 3px solid #a87070;
 }
 
-form {
+/* form {
   display: grid;
-}
+} */
 
-.getreviewer{
-border: 5px outset;
-width: 200px;
-font-size: 25px;
- margin-bottom: 10px;
+.getreviewer {
+  border: 5px solid #ffc7c7;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 9px 0px 2px 5px;
+  width: 200px;
+  font-size: 25px;
+  margin-bottom: 10px;
+  background-color: #fff;
+
+  font-family: "GmarketSansMedium";
 }
-.getvalue{
-  border: 5px outset;
+.getvalue {
+  border: 5px solid #ffc7c7;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 9px 0px 5px 5px;
   height: 200px;
+  background-color: #fff;
+
+  font-family: "GmarketSansMedium";
 }
 
 .movie_review2 {
-  border: 5px groove;
+  border: 5px solid #ffc7c7;
+  border-radius: 15px;
   height: 600px;
   width: 770px;
   overflow-y: auto;
+  background-color: #ffc7c777;
 }
-
